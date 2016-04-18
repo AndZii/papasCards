@@ -1,0 +1,18 @@
+%br/
+%br/
+%br/
+.col-sm-6.col-sm-offset-3
+  .panel.panel-default
+    .panel-heading
+      %h1 Show Card
+    .panel-body
+      %h3
+        %strong Front Side:
+        = @word.front
+      %br/
+      %h3
+        %strong Back Side:
+        = @word.back
+    .panel-footer
+      = link_to 'Edit', edit_word_path(@word), class: "btn btn-warning"
+      = link_to 'All List', words_path, class: "btn btn-success"

@@ -1,0 +1,23 @@
+= simple_form_for(@word, html: { class: 'form-horizontal' }) do |f|
+  - if @word.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@word.errors.count, "error")
+        prohibited this word from being saved:
+      %ul
+        - @word.errors.full_messages.each do |message|
+          %li= message
+  .row
+    .col-sm-6.col-sm-offset-3
+      = f.label "Create Card"
+      %br/
+      = f.text_field :front, class: "form-control"
+      = f.label "TRANSLATION"
+      %br/
+      = f.text_field :back, class: "form-control"
+    .col-sm-3
+  %br/
+  .row
+    .col-sm-6.col-sm-offset-3
+      = f.submit  "Submit", class: 'btn btn-success'
+      = link_to 'Back', words_path, class: "btn btn-danger"

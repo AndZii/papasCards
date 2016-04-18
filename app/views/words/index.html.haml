@@ -1,0 +1,27 @@
+%p#notice= notice
+%h1.text-center List of All Cards
+%br/
+.text-center
+  = link_to 'Add New Word', new_word_path, class: "btn btn-lg btn-success"
+%br/
+.row
+  .col-sm-8.col-sm-offset-2
+    %table.table.table-striped
+      %thead
+        %tr
+          %th NUM
+          %th WORD
+          %th TRANSLATION
+          %th ACTION
+      %tbody
+        - @words.each do |word|
+          %tr
+            %td= word.id
+            %td= word.front
+            %td= word.back
+            %td
+              =link_to 'Edit', edit_word_path(word), class: "btn btn-warning"
+              =link_to 'Destroy', word, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+%br/
+
+
