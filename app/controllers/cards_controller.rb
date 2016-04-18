@@ -3,7 +3,7 @@ class CardsController < ApplicationController
     @cards = Word.all
 
     if @cards.count < 3
-      # store_call_words
+       store_call_words
     end
 
     respond_to do |format|
